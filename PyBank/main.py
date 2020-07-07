@@ -4,7 +4,7 @@ import os
 import csv
 
 #join the path 
-financial_data = os.path.join("..","Resources", "budget_data.csv")
+financial_data = os.path.join("PyBank","Resources", "budget_data.csv")
 
 # Open and read the csv to report findings into variables
 with open(financial_data, newline="") as csvfile: 
@@ -13,11 +13,11 @@ with open(financial_data, newline="") as csvfile:
     #Make sure to skip the header as input
     csvheader = next(csvreader)
 
-#Generate lists to loop through the rows for each variable
+    #Generate lists to loop through the rows for each variable
 
-total_months = []
-total_profit = []
-monthly_profit_change = []
+    total_months = []
+    total_profit = []
+    monthly_profit_change = []
 
     #Loop through the data for total months and total profit
     for row in csvreader:
@@ -54,17 +54,11 @@ print(f"Greatest Decrease in Profits: {total_months[max_decrease_month]} (${(str
 file = open("output.txt","w")
 
 #Write out how answers will be displayed in text file 
-    file.write("Financial Analysis" +"\n")
-    file.write("\n")
-    file.write("----------------------------" + "\n")
-    file.write("\n")
-    file.write(f"Total Months: {len(total_months)}" + "\n")
-    file.write("\n")
-    file.write(f"Total: ${sum(total_profit)}" + "\n")
-    file.write("\n")
-    file.write(f"Average Change: {round(sum(monthly_profit_change)/len(monthly_profit_change),2)}" + "\n")
-    file.write("\n")
-    file.write(f"Greatest Increase in Profits: {total_months[max_increase_month]} + (${(str(max_increase_value))})" + "\n")
-    file.write("\n")
-    file.write(f"Greatest Decrease in Profits: {total_months[max_decrease_month]} + (${(str(max_decrease_value))})" + "\n")
-    file.close()
+file.write("Financial Analysis" +"\n")
+file.write("----------------------------" + "\n")
+file.write(f"Total Months: {len(total_months)}" + "\n")
+file.write(f"Total: ${sum(total_profit)}" + "\n")
+file.write(f"Average Change: {round(sum(monthly_profit_change)/len(monthly_profit_change),2)}" + "\n")
+file.write(f"Greatest Increase in Profits: {total_months[max_increase_month]} + (${(str(max_increase_value))})" + "\n")
+file.write(f"Greatest Decrease in Profits: {total_months[max_decrease_month]} + (${(str(max_decrease_value))})" + "\n")
+file.close()
