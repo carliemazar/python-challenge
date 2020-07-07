@@ -9,7 +9,12 @@ cwkdir = os.getcwd()
 filepath = os.path.join(cwkdir,'Resources','election_data.csv')
 
 #Initialize variables
-totalcount = 0; kcount = 0; ccount = 0; lcount = 0; ocount = 0; max_votecount = 0
+totalcount = 0
+kcount = 0
+ccount = 0
+lcount = 0
+ocount = 0
+max_votecount = 0
 
 #Function for % calculation
 def percentage (part, whole):
